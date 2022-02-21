@@ -1,59 +1,10 @@
-# Node.js를 이용한 백앤드 구축
+# Express.js로 REST API 구현하기
 
-## 1. `Express.js` 개요
-- `Express.js`는 Node.js에서 제공하는 강력한 웹 프레임워크다. 
-
-### 1) 웹 프레임워크란?
-- 웹 서비스를 빠르게 구성하기 위해, `HTTP 요청, 응답`, `라우팅`, `HTML Templating` 등의 기능을 제공하는 툴이다.
-
-#### 2) 라우팅이란?
-
-- HTTP 요청 URL에 해당하는 알맞은 응답을 보내주는 경로를 미리 설정해주는 기능을 말한다.
-
-### 3) `express-generator`
-
-- 프로젝트의 기본구조를 빠르게 구축할 수 있는 방법이다.
-- 프로젝트 생성 이후엔 사용되지 않기 때문에 npx를 이용하여 사용된다.
-
-```shell
-npx express-generator my-web
-```
-
-#### 디렉토리 구조
-
-- `app.js`: Express.js의 가장 기본이 되는 파일
-- `bin/www`: Express.js 실행 부분 담당, 포트와 실행 오류 등을 정의
-- `package.json`: 프로젝트 의존성 및 스크립트 정의
-- `public`: 코드를 통하지 않고, 직접 제공되는 파일 디렉토리
-- `routes`: 라우팅 파일 디렉토리
-- `views`: HTML Template 디렉토리
-
-
-## 2. `Express.js` 사용하기
-
-### 1) `app` 객체
-```js
-var express = require('express');
-var app = express()
-```
-
-- `app` 객체는 `Express.js` 의 기능을 담은 객체로, `Express.js`의 모든 동작은 `app` 객체에 정의된다.
-
-#### `app.use()`
-- middleware를 사용하기 위한 함수
-
-#### `app.listen()`
-- http 서버를 생성해주는 함수
-
-#### `app.locals`
-- app에서 사용할 공통 상수
-- Express.js에선 global 변수를 선언하지 않고 이 값을 이용해서 사용한다.
-
-### 2) 라우팅
+### 라우팅
 
 - 라우팅은 `app` 라우팅, `Express.Router`라우팅 방법이 있다.
- 
-### 2-1) `app` 라우팅 
+
+### 1. `app` 라우팅 
 
 ```js
 app.get('/', (req,res)=>{
@@ -78,7 +29,7 @@ app.all('/', (req,res)=>{
 - 첫번째 인자: 라우팅을 실행할 URL
 - 두번째 인자: 라우팅이 실행될 때 작동하는 함수(Request Handler)
 
-### 2-2) `Express.Router`
+### 2. `Express.Router`
 
 - app 라우팅은 라우팅의 핵심인 `그룹화`를 지원하지 않는다.
 - 이는 `Express.Router`를 통해 라우팅을 모듈화할 수 있다.
@@ -159,8 +110,6 @@ router.get('/user', RequsetHandler);
 - `Express.js` 는 `app` 객체를 시작으로 모든 동작이 이루어진다.
 - `app` 객체나 `Express.Router`를 사용하여 라우팅을 구현할 수 있다.
 - `Request Handler`를 통해 HTTP 요청과 응답을 처리할 수 있다.
-
-
 
 # notes
 
